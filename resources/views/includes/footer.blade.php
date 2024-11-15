@@ -40,7 +40,7 @@
         <li><a class="link-footer" href="{{ url('create/campaign') }}">{{ trans('misc.create_campaign') }}</a></li><li>
           <li><a class="link-footer" href="{{ url('campaigns/featured') }}">{{ trans('misc.featured_campaign') }}</a></li><li>
             @guest
-              <li><a class="link-footer" href="{{ url('login') }}">{{ trans('auth.login') }}</a></li><li>
+              <li><a class="link-footer" href="{{ route('proid.login','web_client') }}">{{ trans('auth.login') }}</a></li><li>
               <li><a class="link-footer" href="{{ url('register') }}">{{ trans('auth.sign_up') }}</a></li><li>
               @else
                 <li><a class="link-footer" href="{{ url('account') }}">{{ trans('users.account_settings') }}</a></li><li>

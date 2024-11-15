@@ -110,7 +110,7 @@
           @else
 
           <li class="nav-item me-1">
-            <a class="nav-link" href="{{ url('login') }}">{{ trans('auth.login') }}</a>
+            <a class="nav-link" href="{{ route('proid.login','web_client') }}">{{ trans('auth.login') }}</a>
           </li>
           @endauth
 

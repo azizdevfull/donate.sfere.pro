@@ -89,7 +89,7 @@ Route::get('verify/account/{confirmation_code}', 'HomeController@getVerifyAccoun
  | Authentication
  |-----------------------------------
  */
-Auth::routes();
+// Auth::routes();
 
 // Logout
 Route::get('/logout', 'Auth\LoginController@logout');

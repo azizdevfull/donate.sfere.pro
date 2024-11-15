@@ -20,7 +20,7 @@ return array(
 	'full_name'		          =>	  'Полное имя',
 	'team_name'		          =>	  'Название команды',
 	'status'		          =>	  'Статус',
-	'login'				      =>	  'Авторизоваться',
+	'login'				      =>	  'Войти по PRO ID',
 	'forgot_password'		  =>	  'Забыли пароль?',
 	'confirm_password'		  =>	  'Подтвердите пароль',
 	'sign_up'				  =>	  'Зарегистрироваться',

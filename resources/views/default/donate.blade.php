@@ -144,33 +144,11 @@ var campaignId = {{ $response->id }};
              <input type="text" id="cardholder-name" value="@if( Auth::check() ){{Auth::user()->name}}@endif" name="full_name" class="form-control input-lg" placeholder="{{ trans('misc.first_name_and_last_name') }}">
            </div><!-- /. End-->
 
-           <!-- Start -->
-           <div class="col">
-             <label>{{ trans('auth.email') }}</label>
-               <input type="text" id="cardholder-email" value="@if( Auth::check() ){{Auth::user()->email}}@endif" name="email" class="form-control input-lg" placeholder="{{ trans('auth.email') }}">
-           </div><!-- /. End-->
+    
 
          </div><!-- /. form-row-->
 
-           <div class="form-row form-group">
-               <!-- Start -->
-                 <div class="col">
-                   <label>{{ trans('misc.country') }}</label>
-                     <select id="country" name="country" class="form-select" >
-                       <option value="">{{trans('misc.select_one')}}</option>
-                     @foreach(  App\Models\Countries::orderBy('country_name')->get() as $country )
-                         <option @if( Auth::check() && Auth::user()->countries_id == $country->id ) selected="selected" @endif value="{{$country->country_name}}">{{ $country->country_name }}</option>
-                         @endforeach
-                       </select>
-                     </div><!-- /. End-->
-
-               <!-- Start -->
-                 <div class="col">
-                   <label>{{ trans('misc.postal_code') }}</label>
-                     <input type="text" id="postal_code" value="{{ old('postal_code') }}" name="postal_code" class="form-control" placeholder="{{ trans('misc.postal_code') }}">
-                 </div><!-- /. End-->
-
-               </div><!-- form-row -->
+        
 
                <!-- Start -->
                  <div class="form-group">

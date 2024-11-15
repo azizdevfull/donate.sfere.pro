@@ -167,9 +167,9 @@ class DonationsController extends Controller
 		$validator = Validator::make($data, [
 			'amount' => 'required|integer|min:' . $this->settings->min_donation_amount . '|max:' . $this->settings->max_donation_amount,
 			'full_name'     => 'required|max:20',
-			'email'     => 'required|email|max:100',
-			'country'     => 'required',
-			'postal_code'     => 'required|max:10',
+// 			'email'     => 'required|email|max:100',
+// 			'country'     => 'required',
+// 			'postal_code'     => 'required|max:10',
 			'comment'     => 'nullable|max:50',
 			'payment_gateway' => 'required|check_payment_gateway',
 			'bank_transfer' => 'required_if:payment_gateway,==,3|min:10|max:300',
@@ -200,6 +200,7 @@ class DonationsController extends Controller
 
 		$data_all = $this->request->except(['_token']);
 		$dataGlobal = array_merge($data, $data_all);
+// 		dd($payment->name);
 
 		// Send data to the payment processor
 		return redirect()->route(str_slug($payment->name), $dataGlobal);

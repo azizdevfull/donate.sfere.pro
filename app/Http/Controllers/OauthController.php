@@ -24,7 +24,7 @@ class OauthController extends Controller
         ];
 
         $client_id = $client_id_map[$isMobileOrWeb] ?? '';
-        $callbackUri = "http://donate.sfere.pro/oauth/proid/web_client/callback";
+        $callbackUri = "https://donate.sfere.pro/oauth/proid/web_client/callback";
         if (!empty($client_id) && !empty($callbackUri)) {
             $query = http_build_query([
                 'client_id' => $client_id,
@@ -67,7 +67,11 @@ class OauthController extends Controller
         ]);
 
         $responseData = $response->json();
-        info($responseData);
+        // info($responseData);
+       if (!isset($responseData['access_token'])) {
+            return redirect()->route('proid.login','web_client');
+        }
+
         $accessToken = $responseData['access_token'];
 
         $userRes = Http::withToken($accessToken)->get('https://api.id.sfere.pro/api/user');

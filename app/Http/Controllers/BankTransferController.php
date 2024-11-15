@@ -59,7 +59,11 @@ class BankTransferController extends Controller
     $fullNameUser = $this->request->full_name;
     $paymentGateway = 'Bank Transfer';
 
-    Mail::send('emails.thanks-donor', array(
+    if ($_emailUser) {
+      # code...
+      Mail::send(
+        'emails.thanks-donor',
+        array(
           'data' => $campaignID,
           'fullname' => $fullNameUser,
           'title_site' => $titleSite,
@@ -68,12 +72,13 @@ class BankTransferController extends Controller
           'organizer_email' => $organizerEmail,
           'payment_gateway' => $paymentGateway,
         ),
-    function($message) use ( $sender, $fullNameUser, $titleSite, $_emailUser, $campaignTitle)
-      {
+        function ($message) use ($sender, $fullNameUser, $titleSite, $_emailUser, $campaignTitle) {
           $message->from($sender, $titleSite)
             ->to($_emailUser, $fullNameUser)
-          ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
-      });
+            ->subject(trans('misc.thanks_donation') . ' - ' . $campaignTitle . ' || ' . $titleSite);
+        }
+      );
+    }
 
     return response()->json([
           'success' => true,
